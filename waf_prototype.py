@@ -15,12 +15,12 @@ IP_BLOCKLIST = {
 MALICIOUS_SIGNATURES = [
     
     re.compile(r"(\%27)|(\')|(\-\-)|(\%23)|(#)", re.IGNORECASE), 
-    re.compile(r"\b(UNION|SELECT|INSERT|DROP|UPDATE|DELETE|FROM|WHERE)\b", re.IGNORECASE),
+    re.compile(r"\b(UNION\s+SELECT)\b", re.IGNORECASE),
  
     re.compile(r"(<|%3C)script(>|%3E)", re.IGNORECASE),
-    re.compile(r"onerror|onload|onmouseover", re.IGNORECASE), 
+    re.compile(r"<[^>]+(onerror|onload|onmouseover)\s*=", re.IGNORECASE),
 
-    re.compile(r"\.\./|\.\.\\") # ../ or ..\
+    re.compile(r"\.\./|\.\.\\") 
 ]
 
 
